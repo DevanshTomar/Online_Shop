@@ -1,0 +1,50 @@
+.form-control {
+  margin: 1rem 0;
+  position: relative; /* Add position relative for pseudo-element */
+}
+
+.form-control label,
+.form-control input,
+.form-control textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.form-control input,
+.form-control textarea {
+  border: 1px solid #a1a1a1;
+  font: inherit;
+  border-radius: 2px;
+  padding: 0.5rem; /* Add padding for better spacing */
+  transition: border-color 0.3s ease-in-out; /* Add transition for border color */
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  outline-color: #00695c;
+  border-color: #00695c; /* Change border color on focus */
+}
+
+.form-control input.invalid,
+.form-control textarea.invalid {
+  border-color: red;
+}
+
+/* Add pseudo-element for animation */
+.form-control::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00695c;
+  transition: width 0.3s ease-in-out; /* Add transition for width */
+}
+
+/* Animate pseudo-element on focus */
+.form-control input:focus::before,
+.form-control textarea:focus::before {
+  width: 100%;
+}
